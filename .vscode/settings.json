@@ -1,0 +1,6 @@
+{
+  "cSpell.words": ["ical"],
+  "files.associations": {
+    "*.njk": "jinja-html"
+  }
+}
