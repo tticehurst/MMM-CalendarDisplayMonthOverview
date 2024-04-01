@@ -1,0 +1,59 @@
+:root {
+  --border-size: 2px;
+  --width: 261px;
+
+  --bubble-size: 33px;
+}
+
+div#cal-month-container {
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+div#cal-month-container div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div#cal-month-container div#cal-month-container-head {
+  gap: 5px;
+  min-width: var(--width);
+}
+
+div#cal-month-container div.bubble {
+  background-color: #333;
+  border-radius: 50%;
+  color: #ffffff;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  justify-content: center;
+  border: var(--border-size) solid rgba(255, 255, 255, 0);
+}
+
+div#cal-month-container div.bubble.border {
+  border: var(--border-size) solid #ccc;
+}
+
+div#cal-month-container div.bubble.today {
+  text-decoration: underline;
+  background-color: #fff;
+  color: black;
+}
+
+div#cal-month-container div.bubble span#sunday {
+  color: #40e0d0;
+}
+
+div#cal-month-container div.bubble span#monday {
+  color: #ff0000;
+}
+
+div.cal-month-segment-container {
+  gap: 5px;
+  min-width: var(--width);
+  justify-content: flex-start;
+}

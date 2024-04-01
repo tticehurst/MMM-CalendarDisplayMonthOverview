@@ -1,0 +1,29 @@
+<span>{{ month }}</span>
+
+<div id="cal-month-container">
+
+  <div id="cal-month-container-head">
+    {% for x in ["Mo","Tu","We","Th","Tr","Sa","Su"] %}
+      <div class="bubble">
+        {% set id = "" %}
+
+        {% if x == "Mo" %}
+          {% set id = "monday" %}
+        {% elif x=="Su" %}
+          {% set id = "sunday" %}
+        {% endif %}
+        <span id="{{ id }}">{{ x }}</span>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% for seg in segments %}
+    <div class="cal-month-segment-container">
+
+      {% for events in seg %}
+        <div class="bubble {{ 'border' if events.events > 0 else '' }} {{ 'today' if events.day == today else '' }}"
+             style="background-color: {{ events.colour }}">{{ events.day|toDayNumber }}</div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
