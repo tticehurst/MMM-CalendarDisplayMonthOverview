@@ -38,13 +38,13 @@ Module.register("MMM-CalendarDisplayMonthOverview", {
 
           return {
             ...eventSegment,
-            colour: eventSegment.day !== pl.today ? gradColour : ""
+            colour: eventSegment.day !== pl.today ? gradColour : "",
+            dow: new Date(eventSegment.day).getDay()
           };
         })
       );
 
       this.segments = segments;
-
       this.updateDom(300);
     }
   },
