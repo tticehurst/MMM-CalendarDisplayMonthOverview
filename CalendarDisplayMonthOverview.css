@@ -13,7 +13,7 @@ div#cal-month-container {
   gap: 5px;
 }
 
-div#cal-month-container div {
+div#cal-month-container div:not(.dow-col) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,6 +22,7 @@ div#cal-month-container div {
 div#cal-month-container div#cal-month-container-head {
   gap: 5px;
   min-width: var(--width);
+  align-items: flex-start;
 }
 
 div#cal-month-container div.bubble {
@@ -44,16 +45,21 @@ div#cal-month-container div.bubble.today {
   color: black;
 }
 
-div#cal-month-container div.bubble span#sunday {
+div#cal-month-container div.bubble.nextMonth {
+  opacity: 0.35;
+}
+
+div#cal-month-container div.bubble span#weekStart {
   color: #40e0d0;
 }
 
-div#cal-month-container div.bubble span#monday {
+div#cal-month-container div.bubble span#weekEnd {
   color: #ff0000;
 }
 
-div.cal-month-segment-container {
+div.dow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 5px;
-  min-width: var(--width);
-  justify-content: flex-start;
 }
