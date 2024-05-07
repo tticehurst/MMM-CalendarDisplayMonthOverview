@@ -4,25 +4,30 @@
   <div id="cal-month-container-head">
     {% for x in [{str: "Mo", dow: 1}, {str: "Tu", dow: 2}, {str: "We", dow: 3}, {str: "Th", dow: 4}, {str: "Fr", dow: 5}, {str: "Sa", dow: 6},{str: "Su", dow: 0}] %}
       <div class="dow-col">
-        <div class="bubble">
+        <div class="bubble header">
           {% set id = "" %}
-
           {% if x.dow == 0 %}
             {% set id = "weekEnd" %}
           {% elif x.dow == 1 %}
             {% set id = "weekStart" %}
           {% endif %}
-
           <span id="{{ id }}">{{ x.str }}</span>
         </div>
 
         {% for seg in segments %}
+          {% set event_found = false %}
+          {% set added = 0 %}
           {% for events in seg %}
             {% if events.dow == x.dow %}
+              {% set event_found = true %}
+              {% set added = added+1 %}
               <div class="bubble {{ 'border' if events.events > 0 else '' }} {{ 'today' if events.day == today else '' }} {{ 'nextMonth' if events.nextMonth else '' }}"
                    style="background-color: {{ events.colour }}">{{ events.day|toDayNumber }}</div>
             {% endif %}
           {% endfor %}
+
+          {% if not event_found %}<div class="bubble placeholder"></div>{% endif %}
+
         {% endfor %}
       </div>
     {% endfor %}
