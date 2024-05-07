@@ -46,7 +46,8 @@ div#cal-month-container div.bubble.today {
 }
 
 div#cal-month-container div.bubble.nextMonth {
-  opacity: 0.35;
+  opacity: 0;
+  position: absolute;
 }
 
 div#cal-month-container div.bubble span#weekStart {
@@ -62,4 +63,17 @@ div.dow-col {
   flex-direction: column;
   align-items: center;
   gap: 5px;
+}
+
+div.bubble.header {
+  order: -1;
+}
+
+div.placeholder {
+  opacity: 0.35;
+  order: -1;
+}
+
+div.e {
+  background-color: red !important;
 }
